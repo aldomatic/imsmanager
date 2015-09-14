@@ -1,0 +1,21 @@
+{{#each docs}}
+     <tr>
+       <td>
+         <select class="order_select" data-rowid="{{_id}}" data-currentposition="{{position}}">
+            {{#with ../docs}}
+              <option value="{{position}}">{{position}}</option>
+            {{/with}}
+        </select>
+       </td>
+       <td>{{title}}</td>
+       <td>{{url}}</td>
+       <td>
+         {{#if fields}}
+          {{fields}}
+        {{else}}
+            N/A
+        {{/if}}
+       </td>
+       <td><button type="button" class="delete-action btn btn-danger btn-xs" data-id="{{_id}}">Delete</button></td>
+     </tr>
+{{/each}}

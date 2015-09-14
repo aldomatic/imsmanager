@@ -1,0 +1,488 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12" style="background-color:#fff;padding:10px 25px 25px 25px;">
+      <div id="currentAPAOffersWrapper">
+        <h3>APA Offers</h3>
+				<p>
+					These offers only update on the global XML APA.<br />
+          ex: https://forms.submitsecurity.com/apa/apa-001
+				</p>
+        <div id="offerslist">
+          <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <th>Order</th>
+              <th>Title</th>
+              <th>URL</th>
+              <th>Prepop Fields</th>
+              <th>Action</th>
+            </thead>
+            <tbody>
+            <tr>
+              <td colspan="3" align="center">No Offers</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+        <p>
+          <button type="button" class="btn btn-primary" data-toggle='modal' data-target='#addOfferModal'>Add New</button>
+        </p>
+        <br /><br />
+      </div>
+
+
+
+      <!-- Continue Offer -->
+			<div id="continueButtonOfferWrapper">
+				<h3>Continue Offer</h3>
+        <p>
+          This offer only applies to the "continue button" shown on a successful lead submission.
+        </p>
+          <div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<th>Title</th>
+						<th>URL</th>
+						<th>Action</th>
+					</thead>
+					<tbody>
+           <tr>
+              <td colspan="3" align="center">No Offer</td>
+            </tr>
+					</tbody>
+				</table>
+        </div>
+         <p>
+          <button id ="addContinueOfferBtn" type="button" class="btn btn-primary" data-toggle='modal' data-target='#addContinueOfferModal'>Add New</button>
+        </p>
+          <br /><br />
+				</div>
+        <!-- /end Continue Offer -->
+
+
+        <!-- DrugJustice Reject Offer -->
+        <div id="djRejectOfferWrapper">
+          <h3>DrugJustice Reject Offers</h3>
+          <p>
+            These offers redirect our x-outs from the drug landing page.
+          </p>
+            <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <th>Target</th>
+              <th>Offer</th>
+              <th>Action</th>
+            </thead>
+            <tbody>
+             <tr>
+                <td colspan="3" align="center">No Offer</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+           <p>
+            <button id ="addRejectOfferBtn" type="button" class="btn btn-primary" data-toggle='modal' data-target='#addRejectOfferModal'>Add New</button>
+          </p>
+            <br /><br />
+          </div>
+          <!-- /end DrugJustice Reject Offer -->
+    </div>
+
+
+
+  </div>
+</div><!-- /.container -->
+
+
+
+<!-- Add APA Offer Modal -->
+<div class="modal fade" id="addOfferModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title" id="myModalLabel">Add New</h3>
+      </div>
+      <div class="modal-body">
+        <form id="addAPAOfferModal">
+          <div class="form-group">
+						<p>
+							This is the text that will be used for the link
+						</p>
+            <input type="text" class="form-control" id="titleOfOffer" placeholder="Link Text">
+          </div>
+          <div class="form-group">
+						<p>
+							Offer URL
+						</p>
+            <input type="text" class="form-control" id="urlOfOffer" placeholder="http://">
+          </div>
+          <div class="form-group">
+            <p>
+							Does this offer allow prepop?
+						</p>
+            <label class="radio-inline">
+              <input type="radio" id="prepop_no" value="no" name="prepop"> No
+            </label>
+            <label class="radio-inline">
+              <input type="radio" id="prepop_yes" value="yes" name="prepop"> Yes
+            </label>
+            <br /> <br />
+          <div class="prepop-fields" style="display:none;">
+            <p>
+              Below are the fields that are allowed to prepop over to the offer. If the offer doesn't allow any of the following just leave the field(s) blank.
+            </p>
+              <input type="text" name="apa_prepop_first_name" value="" id="apa_prepop_first_name" placeholder="First Name (name attribute)" class="form-control"><br />
+              <input type="text" name="apa_prepop_last_name" value="" id="apa_prepop_last_name" placeholder="Last Name (name attribute)" class="form-control"><br />
+              <input type="text" name="apa_prepop_email" value="" id="apa_prepop_email" placeholder="Email (name attribute)" class="form-control"><br />
+              <input type="text" name="apa_prepop_zipcode" value="" id="apa_prepop_zipcode" placeholder="Zipcode (name attribute)" class="form-control"><br />
+              <input type="text" name="apa_prepop_phone" value="" id="apa_prepop_phone" placeholder="Phone (name attribute)" class="form-control">
+          </div>
+
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="saveOffer">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /End Add APA Offer Modal -->
+
+<!-- Add Continue Offer Modal -->
+<div class="modal fade" id="addContinueOfferModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title" id="myModalLabel">Add New</h3>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+						<p>
+							This is the text that will be used for the link
+						</p>
+            <input type="text" class="form-control" id="titleOfContinueOffer" placeholder="Link Text">
+          </div>
+          <div class="form-group">
+						<p>
+							Offer URL
+						</p>
+            <input type="text" class="form-control" id="urlOfContinueOffer" placeholder="http://">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="saveContinueOffer">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /End Add Continue Offer Modal -->
+
+
+
+
+<!-- Add DJ Reject Offer Modal -->
+<div class="modal fade" id="addRejectOfferModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title" id="myModalLabel">Add New</h3>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+						<p>
+							This is the Target URL that will inherit the reject offer below.
+						</p>
+            <input type="text" class="form-control" id="targetURL" placeholder="Target URL">
+          </div>
+          <div class="form-group">
+						<p>
+							Offer URL
+						</p>
+            <input type="text" class="form-control" id="rejectOffer" placeholder="http://">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="saveRejectOffer">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /End Add DJ Reject Offer Modal -->
+
+
+<script>
+
+var positionTracker = [];
+function updateOfferPosition(id, position){
+  var indexInArray, currentPosition, currentIndex;
+  for (var i = 0; i < positionTracker.length; i++){
+    if(positionTracker[i]['id'] == id){
+        currentIndex = i;
+      }
+    if(positionTracker[i]['position'] == position){
+        indexInArray = i;
+      }
+  }
+  positionTracker[indexInArray]['position'] = positionTracker[currentIndex]['position'];
+  positionTracker[currentIndex]['position'] = parseInt(position);
+  $.ajax({
+      type: 'POST',
+      url: '/update/apaoffer',
+      contentType: 'application/json',
+      data: JSON.stringify(positionTracker),
+      error: function() {
+        alert("something went wrong.");
+      },
+      success: function(response) {
+        console.log(response);
+        getOffers();
+      }
+   });
+}
+
+function getOffers(){
+  $.ajax({
+      type: 'GET',
+      url: "all/apaoffer",
+      dataType: 'json',
+      error: function(error) {
+      	console.log("something went wrong.");
+      },
+      success: function(response) {
+        if (response.length > 0){
+            var compiledTemplate = Handlebars.templates['offers_td_row.hbs'];
+            var objectwrapper = {docs: response};
+            $("#offerslist table > tbody").html(compiledTemplate(objectwrapper));
+            $("#currentAPAOffersWrapper .delete-action").on("click", function(event){
+              var id = $(this).data("id");
+              if (confirm('Are you sure you want to delete?')) {
+                   deleteApaOffer(id);
+                }
+            });
+            $(".order_select").on('change', function(){
+              updateOfferPosition($(this).data('rowid'), $(this).val());
+            });
+
+            $(".order_select").each(function(){
+              $(this).val($(this).data('currentposition'));
+            });
+
+            for(var i = 0; i<response.length; i++){
+              positionTracker.push({
+                'id':response[i]['_id'],
+                'position': response[i]['position']
+              });
+            }
+          } else {
+            $("#offerslist table > tbody").html('<tr><td colspan="3" align="center">No Offers</td></tr>');
+          }
+      }
+   });
+}
+
+function getContinueButtonOffers(){
+  $.ajax({
+      type: 'GET',
+      url: "all/continueoffer",
+      dataType: 'json',
+      error: function(error) {
+      	console.log("something went wrong.");
+      },
+      success: function(response) {
+          if (response.length === 1){
+              var compiledTemplate = Handlebars.templates['offers_td_row.hbs'];
+              var objectwrapper = {docs: response};
+              $("#continueButtonOfferWrapper table > tbody").html(compiledTemplate(objectwrapper));
+              $("#continueButtonOfferWrapper .delete-action").on("click", function(event){
+                var id = $(this).data("id");
+                if (confirm('Are you sure you want to delete?')) {
+                  deleteContinueOffer(id);
+                }
+              });
+              $("#addContinueOfferBtn").hide();
+            } else {
+              $("#addContinueOfferBtn").show();
+              $("#continueButtonOfferWrapper table > tbody").html('<tr><td colspan="3" align="center">No Offers</td></tr>');
+            }
+          }
+   });
+}
+
+function getDJRejectOffers(){
+  $.ajax({
+      type: 'GET',
+      url: "all/djrejectoffers",
+      dataType: 'json',
+      error: function(error) {
+      	console.log("something went wrong.");
+      },
+      success: function(response) {
+        if (response.length){
+            var compiledTemplate = Handlebars.templates['rejectoffers_td_row.hbs'];
+            var objectwrapper = {docs: response};
+            $("#djRejectOfferWrapper table > tbody").html(compiledTemplate(objectwrapper));
+            $("#djRejectOfferWrapper .delete-action").on("click", function(event){
+              var id = $(this).data("id");
+              if (confirm('Are you sure you want to delete?')) {
+                deleteDJRejectOffer(id);
+              }
+            });
+          } else {
+            $("#djRejectOfferWrapper table > tbody").html('<tr><td colspan="3" align="center">No Offers</td></tr>');
+          }
+      }
+   });
+}
+
+function deleteApaOffer(docid){
+  $.ajax({
+      type: 'POST',
+      url: "delete/apaoffer/"+docid,
+      error: function() {
+        alert("something went wrong.");
+      },
+      success: function(response) {
+				getOffers();
+      }
+   });
+}
+function deleteContinueOffer(docid){
+  $.ajax({
+      type: 'POST',
+      url: "delete/continueoffer/"+docid,
+      error: function() {
+        alert("something went wrong.");
+      },
+      success: function(response) {
+				getContinueButtonOffers();
+      }
+   });
+}
+function deleteDJRejectOffer(docid){
+  $.ajax({
+      type: 'POST',
+      url: "delete/djrejectoffers/"+docid,
+      error: function() {
+        alert("something went wrong.");
+      },
+      success: function(response) {
+        getDJRejectOffers();
+      }
+   });
+}
+
+function postOffer(title, url, canprepop, fields){
+  if(canprepop){
+    var endpoint = "addofferwithprepop/apaoffer/"+encodeURIComponent(title)+"/"+encodeURIComponent(url)+"/"+encodeURIComponent(fields);
+  } else {
+    var endpoint = "add/apaoffer/"+encodeURIComponent(title)+"/"+encodeURIComponent(url);
+  }
+  $.ajax({
+      type: 'POST',
+      url: endpoint,
+      error: function() {
+        alert("something went wrong.");
+      },
+      success: function(response) {
+				getOffers();
+				$('#addOfferModal').modal('hide');
+        $("#titleOfOffer").val("");
+        $("#urlOfOffer").val("")
+      }
+   });
+}
+
+function postContinueOffer(title, url){
+  $.ajax({
+      type: 'POST',
+      url: "add/continueoffer/"+encodeURIComponent(title)+"/"+encodeURIComponent(url),
+      error: function() {
+        alert("something went wrong.");
+      },
+      success: function(response) {
+        getContinueButtonOffers();
+        $('#addContinueOfferModal').modal('hide');
+        $("#titleOfContinueOffer").val("");
+        $("#urlOfContinueOffer").val("");
+      }
+   });
+}
+
+function postRejectOffer(target, offer){
+  $.ajax({
+      type: 'POST',
+      url: "addreject/drugjusticerejectoffer/"+encodeURIComponent(target)+"/"+encodeURIComponent(offer),
+      error: function() {
+        alert("something went wrong.");
+      },
+      success: function(response) {
+				getDJRejectOffers();
+				$('#addRejectOfferModal').modal('hide');
+        $("#targetURL").val("");
+        $("#rejectOffer").val("")
+      }
+   });
+}
+
+$(function(){
+   getOffers();
+   getContinueButtonOffers();
+   getDJRejectOffers();
+  $("#saveOffer").click(function(event){
+    event.preventDefault();
+    var offerTitle = $("#titleOfOffer").val(),
+        offerURL = $("#urlOfOffer").val(),
+        prepopFields = $("#apa_prepop_first_name").val() +","+ $("#apa_prepop_last_name").val() +","+ $("#apa_prepop_email").val() +","+$("#apa_prepop_zipcode").val()+","+$("#apa_prepop_phone").val();
+
+        if($("input[name=prepop]:checked" ).val() === 'yes'){
+          //console.log(prepopFields);
+          postOffer(offerTitle, offerURL, true, prepopFields);
+        } else {
+          postOffer(offerTitle, offerURL, false);
+        }
+  });
+  $("#saveContinueOffer").click(function(event){
+    event.preventDefault();
+    var offerTitle = $("#titleOfContinueOffer").val(),
+        offerURL = $("#urlOfContinueOffer").val();
+    postContinueOffer(offerTitle, offerURL);
+  });
+  $("#saveRejectOffer").click(function(event){
+    event.preventDefault();
+    postRejectOffer($("#targetURL").val(), $("#rejectOffer").val());
+  });
+
+  $("input[name=prepop]" ).on( "click", function(event){
+    if($("input[name=prepop]:checked" ).val() === 'yes'){
+      $(this).parent().parent().addClass("canprepop");
+      $(".prepop-fields").show();
+    } else {
+      $(this).parent().parent().removeClass("canprepop");
+      $(".prepop-fields").hide();
+    }
+  });
+
+
+});
+
+Handlebars.registerHelper('with', function(context, options) {
+  var html = "";
+    for (var i = 0; i < context.length; i++){
+      html += options.fn(context[i]);
+    }
+    return html;
+});
+
+</script>

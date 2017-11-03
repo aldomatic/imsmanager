@@ -1,2 +1,2 @@
 # imsmanager
-In-house tool
+In-house tool Only
